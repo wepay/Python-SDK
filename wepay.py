@@ -36,8 +36,6 @@ class WePay(object):
             response = urllib2.urlopen(request).read()
             return json.loads(response)
         except urllib2.HTTPError as e:
-            print dir(request)
-            print request.data
             response = json.loads(e.read())
             raise WePay.WePayError(response['error'], response['error_description'])
             
