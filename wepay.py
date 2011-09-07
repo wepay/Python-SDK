@@ -18,7 +18,6 @@ class WePay(object):
         response as a python dict. Will use POST if {token} or {self.access_token} is set."""
         
         url = self.wepay_url + uri
-        payload = ''
         if self.access_token or token:
             headers = {
                 'Authorization': 'Bearer ' + (token if token else self.access_token),
