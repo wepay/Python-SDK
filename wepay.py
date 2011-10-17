@@ -15,7 +15,8 @@ class WePay(object):
     
     def call(self, uri, params={}, token=None):
         """Calls wepay.com/v2/{uri} with {params} and returns the json
-        response as a python dict. Will use POST if {token} or {self.access_token} is set."""
+        response as a python dict. The optional token parameter will override
+        the instance's access_token if it is set."""
         
         headers = { 'Content-Type' : 'application/json' }
         url = self.wepay_url + uri
