@@ -13,22 +13,17 @@ class WePay(object):
         else:
             self.wepay_url = "https://stage.wepay.com/v2"
     
-    def call(self, uri, params=None, token=None):
+    def call(self, uri, params={}, token=None):
         """Calls wepay.com/v2/{uri} with {params} and returns the json
         response as a python dict. Will use POST if {token} or {self.access_token} is set."""
         
+        headers = { 'Content-Type' : 'application/json' }
         url = self.wepay_url + uri
+        
         if self.access_token or token:
-            headers = {
-                'Authorization': 'Bearer ' + (token if token else self.access_token),
-                'Content-Type' : 'application/x-www-form-urlencoded'
-            }
-            if params:
-                params = urllib.urlencode(params)
-        else:
-            url += "?" + urllib.urlencode(params)
-            headers = {}
-            params = None
+            headers['Authorization'] = 'Bearer ' + (token if token else self.access_token)
+            
+        params = json.dumps(params)
         
         request = urllib2.Request(url, params, headers)
         try:

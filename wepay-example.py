@@ -1,8 +1,8 @@
 import web
 from wepay import WePay
 
-CLIENT_ID = '33518'
-CLIENT_SECRET = '9c7a077b7e'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 IN_PRODUCTION = False
 
 urls = (
