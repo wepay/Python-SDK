@@ -18,13 +18,13 @@ Create a new `WePay` instance. With no arguments, it will use the production ver
     wepay = WePay()
 
 ### Get authorized
-Create an authorization url and redirect the user to it. `CLIENT_ID` is provided by WePay.
+Create an authorization url and redirect the user to it. The first parameter is where the user will be redirected back to after they finish authorization. The second is your `CLIENT_ID` which is provided by WePay.
 
     auth_url = wepay.get_authorization_url(web.ctx.homedomain + '/callback', CLIENT_ID)
     web.redirect(auth_url)
 
 ### Handle the callback
-In your method for handling `/callback` you will need to load the GET param `code` and then call `get_token` with it. `CLIENT_SECRET` is provided by WePay.
+In your method for handling the redirect back to your site (in this case, `/callback`), you will need to load the GET param `code` and then call `get_token` with it. `CLIENT_SECRET` is provided by WePay. The first parameter of `get_token` should be the exact same string that was used in `get_authorization_url`.
 
     code = web.input(code='')['code']
     
