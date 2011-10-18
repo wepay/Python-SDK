@@ -17,6 +17,10 @@ Create a new `WePay` instance. With no arguments, it will use the production ver
 
     wepay = WePay()
 
+If your user has already authorized your application and you still have the access token, you can instantiate the SDK with the optional `access_token` parameter. Afterwards, `wepay.call()` will use the given token for the authorization header.
+
+    wepay = WePay(access_token=USERS_ACCESS_TOKEN)
+
 ### Get authorized
 Create an authorization url and redirect the user to it. The first parameter is where the user will be redirected back to after they finish authorization. The second is your `CLIENT_ID` which is provided by WePay.
 
