@@ -95,3 +95,8 @@ by simply doing ``python wepay-example.py``. If you open the app in your
 browser you should be redirected to WePay to authorize the app. After you
 authorize, you should get redirected around a bit and end up on your new
 account page with a kitty picture.
+
+License
+^^^^^^^
+
+MIT License
