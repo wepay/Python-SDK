@@ -17,7 +17,7 @@ setup(
     long_description=long_description,
     author='Bryce Culhane',
     author_email='bryce.culhane@gmail.com',
-    license='BSD License',
+    license='MIT License',
     url='https://github.com/wepay/Python-SDK',
     platforms=["any"],
     classifiers=[
