@@ -33,7 +33,7 @@ class WePay(object):
         if not params:
             params = {}
 
-        headers = {'Content-Type' : 'application/json'}
+        headers = {'Content-Type' : 'application/json', 'User-Agent' : 'WePay Python SDK'}
         url = self.wepay_url + uri
         
         if self.access_token or token:
