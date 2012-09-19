@@ -16,7 +16,7 @@ class WePay(object):
         self.access_token = access_token
         if production:
             # This will only work after wepay fixes their SSL cert.
-            self.wepay_url = "https://www.wepayapi.com/v2"
+            self.wepay_url = "https://wepayapi.com/v2"
         else:
             self.wepay_url = "https://stage.wepayapi.com/v2"
     
