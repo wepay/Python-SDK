@@ -15,9 +15,10 @@ class WePay(object):
         """
         self.access_token = access_token
         if production:
-            self.wepay_url = "https://www.wepay.com/v2"
+            # This will only work after wepay fixes their SSL cert.
+            self.wepay_url = "https://wepayapi.com/v2"
         else:
-            self.wepay_url = "https://stage.wepay.com/v2"
+            self.wepay_url = "https://stage.wepayapi.com/v2"
     
     def call(self, uri, params=None, token=None):
         """
