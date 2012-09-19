@@ -15,10 +15,11 @@ class WePay(object):
         """
         self.access_token = access_token
         if production:
-            # This will only work after wepay fixes their SSL cert.
-            self.wepay_url = "https://wepayapi.com/v2"
+            self.api_endpoint = "https://wepayapi.com/v2"
+            self.browser_endpoint = "https://www.wepay.com/v2"
         else:
-            self.wepay_url = "https://stage.wepayapi.com/v2"
+            self.api_endpoint = "https://stage.wepayapi.com/v2"
+            self.browser_endpoint = "https://stage.wepay.com/v2"
     
     def call(self, uri, params=None, token=None):
         """
@@ -35,7 +36,7 @@ class WePay(object):
             params = {}
 
         headers = {'Content-Type' : 'application/json', 'User-Agent' : 'WePay Python SDK'}
-        url = self.wepay_url + uri
+        url = self.api_endpoint + uri
         
         if self.access_token or token:
             headers['Authorization'] = 'Bearer ' + (token if token else self.access_token)
@@ -74,7 +75,7 @@ class WePay(object):
         options['redirect_uri'] = redirect_uri
         options['client_id'] = client_id
         
-        return self.wepay_url + '/oauth2/authorize?' + urllib.urlencode(options)
+        return self.browser_endpoint + '/oauth2/authorize?' + urllib.urlencode(options)
     
     def get_token(self, redirect_uri, client_id, client_secret, code):
         """
