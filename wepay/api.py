@@ -32,18 +32,18 @@ class WePay(object):
         :param str token: Optional override for this ``WePay`` object's access
             token.
         """
-        if not params:
-            params = {}
 
         headers = {'Content-Type' : 'application/json', 'User-Agent' : 'WePay Python SDK'}
         url = self.api_endpoint + uri
         
         if self.access_token or token:
             headers['Authorization'] = 'Bearer ' + (token if token else self.access_token)
-            
-        params = json.dumps(params)
+
+        if params:
+            params = json.dumps(params)
         
         request = urllib2.Request(url, params, headers)
+        
         try:
             response = urllib2.urlopen(request).read()
             return json.loads(response)
