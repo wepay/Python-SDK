@@ -45,7 +45,7 @@ class WePay(object):
         request = urllib2.Request(url, params, headers)
         
         try:
-            response = urllib2.urlopen(request).read()
+            response = urllib2.urlopen(request, timeout=30).read()
             return json.loads(response)
         except urllib2.HTTPError as e:
             response = json.loads(e.read())
