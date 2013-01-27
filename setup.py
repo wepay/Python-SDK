@@ -2,7 +2,7 @@ from distutils.core import setup
 import wepay
 import os.path
 
-long_description = open('README.rst').read() if os.path.isfile('README.srt') else 'A Python SDK for our WePay API'
+long_description = open('README.rst').read() if os.path.isfile('README.rst') else 'A Python SDK for our WePay API'
 
 version_str = '%s.%s.%s' % (
     wepay.VERSION[0],
