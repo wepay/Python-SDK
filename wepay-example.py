@@ -1,5 +1,6 @@
 import web
 from wepay import WePay
+from wepay.exceptions import WePayError
 
 CLIENT_ID = ''
 CLIENT_SECRET = ''
@@ -35,7 +36,7 @@ class callback:
             # redirect to the new account
             web.redirect(create_response['account_uri'])
             
-        except WePay.WePayError as e:
+        except WePayError as e:
             return "Received a WePay Error: " + repr(e)
         
 if __name__ == "__main__":
