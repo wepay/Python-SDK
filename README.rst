@@ -34,6 +34,10 @@ authorization header.::
 
     wepay = WePay(access_token=USERS_ACCESS_TOKEN)
 
+To set an [API-Version](https://www.wepay.com/developer/reference/versioning) for your call request, use:
+
+    wepay = WePay(production=False, access_token=USERS_ACCESS_TOKEN, api_version=API_VERSION)
+
 Get authorized
 ^^^^^^^^^^^^^^
 

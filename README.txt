@@ -23,7 +23,7 @@ Instantiate
 
 Create a new ``WePay`` instance. With no arguments, it will use the production
 version of WePay (www.wepay.com). If called with ``production=False`` then
-it will use the staging version (stage.wepay.com) for testing.::
+it will use the staging version (stage.wepay.com) for testing.:
 
     wepay = WePay()
 
@@ -33,6 +33,10 @@ parameter. Afterwards, ``wepay.call()`` will use the given token for the
 authorization header.::
 
     wepay = WePay(access_token=USERS_ACCESS_TOKEN)
+
+To set an [API-Version](https://www.wepay.com/developer/reference/versioning) for your call request, use:
+
+    wepay = WePay(production=False, access_token=USERS_ACCESS_TOKEN, api_version=API_VERSION)
 
 Get authorized
 ^^^^^^^^^^^^^^

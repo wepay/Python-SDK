@@ -1,12 +1,16 @@
-import urllib,urllib2,json
+import urllib
+import urllib2
+import json
 from wepay.exceptions import WePayError
 
+
 class WePay(object):
+
     """
     A client for the WePay API.
     """
-    
-    def __init__(self, production=True, access_token=None):
+
+    def __init__(self, production=True, access_token=None, api_version=None):
         """
         :param bool production: When ``False``, the ``stage.wepay.com`` API
             server will be used instead of the default production.
@@ -14,13 +18,15 @@ class WePay(object):
             application.
         """
         self.access_token = access_token
+        self.api_version = api_version
+
         if production:
             self.api_endpoint = "https://wepayapi.com/v2"
             self.browser_endpoint = "https://www.wepay.com/v2"
         else:
             self.api_endpoint = "https://stage.wepayapi.com/v2"
             self.browser_endpoint = "https://stage.wepay.com/v2"
-    
+
     def call(self, uri, params=None, token=None):
         """
         Calls wepay.com/v2/``uri`` with ``params`` and returns the JSON
@@ -33,24 +39,29 @@ class WePay(object):
             token.
         """
 
-        headers = {'Content-Type' : 'application/json', 'User-Agent' : 'WePay Python SDK'}
+        headers = {'Content-Type': 'application/json',
+                   'User-Agent': 'WePay Python SDK'}
         url = self.api_endpoint + uri
-        
+
         if self.access_token or token:
-            headers['Authorization'] = 'Bearer ' + (token if token else self.access_token)
+            headers['Authorization'] = 'Bearer ' + \
+                (token if token else self.access_token)
+        
+        if self.api_version:
+            headers['Api-Version'] = self.api_version
 
         if params:
             params = json.dumps(params)
-        
+
         request = urllib2.Request(url, params, headers)
-        
+
         try:
             response = urllib2.urlopen(request, timeout=30).read()
             return json.loads(response)
         except urllib2.HTTPError as e:
             response = json.loads(e.read())
             raise WePayError(response['error'], response['error_description'])
-            
+
     def get_authorization_url(self, redirect_uri, client_id, options=None,
                               scope=None):
         """
@@ -69,14 +80,16 @@ class WePay(object):
         if not options:
             options = {}
         if not scope:
-            scope = "manage_accounts,collect_payments,view_balance,view_user,refund_payments"
+            scope = "manage_accounts,collect_payments,view_balance," \
+                    "view_user,refund_payments"
 
         options['scope'] = scope
         options['redirect_uri'] = redirect_uri
         options['client_id'] = client_id
-        
-        return self.browser_endpoint + '/oauth2/authorize?' + urllib.urlencode(options)
-    
+
+        return self.browser_endpoint + '/oauth2/authorize?' + \
+            urllib.urlencode(options)
+
     def get_token(self, redirect_uri, client_id, client_secret, code):
         """
         Calls wepay.com/v2/oauth2/token to get an access token. Sets the
