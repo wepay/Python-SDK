@@ -81,7 +81,7 @@ class WePay(object):
             options = {}
         if not scope:
             scope = "manage_accounts,collect_payments,view_balance," \
-                    "view_user,refund_payments"
+                    "view_user,preapprove_payments,manage_subscriptions,send_money"
 
         options['scope'] = scope
         options['redirect_uri'] = redirect_uri
