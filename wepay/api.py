@@ -46,7 +46,7 @@ class WePay(object):
         if self.access_token or token:
             headers['Authorization'] = 'Bearer ' + \
                 (token if token else self.access_token)
-        
+
         if self.api_version:
             headers['Api-Version'] = self.api_version
 
@@ -80,8 +80,9 @@ class WePay(object):
         if not options:
             options = {}
         if not scope:
-            scope = "manage_accounts,collect_payments,view_balance," \
-                    "view_user,preapprove_payments,manage_subscriptions,send_money"
+            scope = "manage_accounts,collect_payments," \
+                    "view_user,preapprove_payments," \
+                    "manage_subscriptions,send_money"
 
         options['scope'] = scope
         options['redirect_uri'] = redirect_uri
