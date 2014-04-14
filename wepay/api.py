@@ -60,7 +60,7 @@ class WePay(object):
             return json.loads(response)
         except urllib2.HTTPError as e:
             response = json.loads(e.read())
-            raise WePayError(response['error'], response['error_description'])
+            raise WePayError(response['error'], response['error_code'], response['error_description'])
 
     def get_authorization_url(self, redirect_uri, client_id, options=None,
                               scope=None):
