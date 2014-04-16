@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 import wepay
 import os.path
 
@@ -6,8 +6,8 @@ long_description = open('README.rst').read() if os.path.isfile('README.rst') els
 
 version_str = '%s.%s.%s' % (
     wepay.VERSION[0],
-    wepay.VERSION[1],
-    wepay.VERSION[2]
+    wepay.VERSION[2],
+    wepay.VERSION[0]
 )
 
 setup(
