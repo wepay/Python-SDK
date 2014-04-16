@@ -1,3 +1,4 @@
+import requests
 import urllib
 import urllib2
 import json
@@ -53,11 +54,9 @@ class WePay(object):
         if params:
             params = json.dumps(params)
 
-        request = urllib2.Request(url, params, headers)
-
         try:
-            response = urllib2.urlopen(request, timeout=30).read()
-            return json.loads(response)
+            response = requests.post(url, data=params, headers=headers)
+            return response.json()
         except urllib2.HTTPError as e:
             response = json.loads(e.read())
             raise WePayError(response['error'], response['error_code'], response['error_description'])
