@@ -4,7 +4,7 @@
 * **Version:** Updated version number to 0.2.1
 
 ## Breaking Changes
-* **requests:** Updated urllib2 module to reuqests ([192cde7](https://github.com/wepay/Python-SDK/commit/192cde7e7d916b4ad72302e80e0671adee228bf9))
+* **requests:** Updated urllib2 module to use requests -- part of setup.py now ([192cde7](https://github.com/wepay/Python-SDK/commit/192cde7e7d916b4ad72302e80e0671adee228bf9))
 
 # 0.2.0 Python SDK (2014-04-16)
 
