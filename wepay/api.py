@@ -1,4 +1,3 @@
-import requests
 import urllib
 import json
 from wepay.exceptions import WePayError
@@ -17,6 +16,8 @@ class WePay(object):
         :param str access_token: The access token associated with your
             application.
         """
+        import requests
+        self.requests = requests
         self.access_token = access_token
         self.api_version = api_version
 
@@ -53,7 +54,7 @@ class WePay(object):
         if params:
             params = json.dumps(params)
 
-        response = requests.post(
+        response = self.requests.post(
             url, data=params, headers=headers, timeout=30)
         response_json = response.json()
         if 400 <= response.status_code <= 599:
