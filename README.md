@@ -20,7 +20,7 @@ Instantiate
 
 Create a new ``WePay`` instance. With no arguments, it will use the production
 version of WePay (www.wepay.com). If called with ``production=False`` then
-it will use the staging version (stage.wepay.com) for testing.::
+it will use the staging version (stage.wepay.com) for testing:
 
     wepay = WePay()
 
