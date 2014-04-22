@@ -12,14 +12,13 @@ Usage
 These examples use the simple web.py application framework.
 
 Setup
-^^^^^
-
+-----
 Import the module::
 
     from wepay import WePay
 
 Instantiate
-^^^^^^^^^^^
+-----
 
 Create a new ``WePay`` instance. With no arguments, it will use the production
 version of WePay (www.wepay.com). If called with ``production=False`` then
@@ -39,7 +38,7 @@ To set an [API-Version](https://www.wepay.com/developer/reference/versioning) in
     wepay = WePay(production=False, access_token=USERS_ACCESS_TOKEN, api_version=API_VERSION)
 
 Get authorized
-^^^^^^^^^^^^^^
+-----
 
 Create an authorization url and redirect the user to it. The first parameter
 is where the user will be redirected back to after they finish authorization.
@@ -49,7 +48,7 @@ The second is your ``CLIENT_ID`` which is provided by WePay.::
     web.redirect(auth_url)
 
 Handle the callback
-^^^^^^^^^^^^^^^^^^^
+-----
 
 In your method for handling the redirect back to your site (in this case,
 ``/callback``), you will need to load the GET param ``code`` and then call
@@ -69,7 +68,7 @@ authorization. It also returns the entire response from the
 ``/v2/oauth2/token`` call if you need any additional data like the WePay ID.
 
 Make some calls
-^^^^^^^^^^^^^^^
+-----
 
 You are now ready to do anything on behalf of your user. Let's start by making
 a new account.::
@@ -91,7 +90,7 @@ Redirect them to their account page to see it.::
     web.redirect(create_response['account_uri'])
 
 Try it!
-^^^^^^^
+-----
 
 These examples are put together into a working web app in
 ``wepay-example.py``. If you already have web.py installed, you can run it
@@ -101,6 +100,6 @@ authorize, you should get redirected around a bit and end up on your new
 account page with a kitty picture.
 
 License
-^^^^^^^
+-----
 
 MIT License
