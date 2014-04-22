@@ -1,4 +1,4 @@
-# 0.2.1 Python SDK (2014-04-22)
+# 0.2.2 Python SDK (2014-04-22)
 
 ## Bug Fixes
 * **ImportError:** Delayed import of 'requests' module to avoid ImportError ([ff1dc9c](https://github.com/wepay/Python-SDK/commit/ff1dc9c07389ef586b81fad08c86ce87f0979a55))
