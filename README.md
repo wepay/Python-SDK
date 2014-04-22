@@ -7,7 +7,7 @@ For full documentation, see [WePay's developer documentation](https://www.wepay.
 
 Usage
 -----
-These examples use the simple web.py application framework.
+These examples use the simple [web.py](http://webpy.org/) application framework.
 
 Setup
 -----
@@ -19,8 +19,8 @@ Instantiate
 -----
 
 Create a new ``WePay`` instance. With no arguments, it will use the production
-version of WePay (www.wepay.com). If called with ``production=False`` then
-it will use the staging version (stage.wepay.com) for testing:
+version of WePay ([www.wepay.com](https://www.wepay.com/)). If called with ``production=False`` then
+it will use the staging version ([stage.wepay.com](https://stage.wepay.com/)) for testing:
 
     wepay = WePay()
 
