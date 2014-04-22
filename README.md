@@ -3,9 +3,7 @@ WePay Python SDK
 
 WePay's API allows you to easily add payments into your application.
 
-For full documentation, see `WePay's developer documentation`_
-
-.. _WePay's developer documentation: https://www.wepay.com/developer
+For full documentation, see [WePay's developer documentation](https://www.wepay.com/developer).
 
 Usage
 -----
@@ -13,7 +11,7 @@ These examples use the simple web.py application framework.
 
 Setup
 -----
-Import the module::
+Import the module:
 
     from wepay import WePay
 
@@ -29,7 +27,7 @@ it will use the staging version (stage.wepay.com) for testing.::
 If your user has already authorized your application and you still have the
 access token, you can instantiate the SDK with the optional ``access_token``
 parameter. Afterwards, ``wepay.call()`` will use the given token for the
-authorization header.::
+authorization header:
 
     wepay = WePay(access_token=USERS_ACCESS_TOKEN)
 
@@ -42,7 +40,7 @@ Get authorized
 
 Create an authorization url and redirect the user to it. The first parameter
 is where the user will be redirected back to after they finish authorization.
-The second is your ``CLIENT_ID`` which is provided by WePay.::
+The second is your ``CLIENT_ID`` which is provided by WePay:
 
     auth_url = wepay.get_authorization_url(web.ctx.homedomain + '/callback', CLIENT_ID)
     web.redirect(auth_url)
@@ -54,7 +52,7 @@ In your method for handling the redirect back to your site (in this case,
 ``/callback``), you will need to load the GET param ``code`` and then call
 ``get_token`` with it. ``CLIENT_SECRET`` is provided by WePay. The first
 parameter of ``get_token`` should be the exact same string that was used
-in ``get_authorization_url``.::
+in ``get_authorization_url``:
 
     code = web.input(code='')['code']
     
@@ -71,21 +69,21 @@ Make some calls
 -----
 
 You are now ready to do anything on behalf of your user. Let's start by making
-a new account.::
+a new account:
 
     create_response = wepay.call('/account/create', {
         'name': 'kitty expenses fund',
         'description': 'all the money for my kitty'
     })
 
-Now let's set a picture!::
+Now let's set a picture!:
 
     wepay.call('/account/modify', {
         'account_id': create_response['account_id'],
         'image_uri': 'http://www.placekitten.com/500/500'
     })
 
-Redirect them to their account page to see it.::
+Redirect them to their account page to see it:
 
     web.redirect(create_response['account_uri'])
 
