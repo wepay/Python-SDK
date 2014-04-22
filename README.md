@@ -5,6 +5,8 @@ WePay's API allows you to easily add payments into your application.
 
 For full documentation, see [WePay's developer documentation](https://www.wepay.com/developer).
 
+For current and previous versions, see [PyPI](https://pypi.python.org/pypi/wepay).
+
 Usage
 -----
 These examples use the simple [web.py](http://webpy.org/) application framework.
