@@ -92,7 +92,9 @@ class WePay(object):
         return self.browser_endpoint + '/oauth2/authorize?' + \
             urllib.urlencode(options)
 
-    def get_token(self, redirect_uri, client_id, client_secret, code):
+    def get_token(
+            self, redirect_uri, client_id, client_secret,
+            code, callback_uri=None):
         """
         Calls wepay.com/v2/oauth2/token to get an access token. Sets the
         access_token for the WePay instance and returns the entire response
@@ -105,6 +107,8 @@ class WePay(object):
         :param str client_secret: The client secret issued by WePay
             to your app.
         :param str code: The code returned by :py:meth:`get_authorization_url`.
+        :param str callback_uri: The callback_uri you want to receive IPNs for
+            this user on.
         """
         params = {
             'redirect_uri': redirect_uri,
@@ -112,6 +116,8 @@ class WePay(object):
             'client_secret': client_secret,
             'code': code,
         }
+        if callback_uri:
+            params.update({'callback_uri': callback_uri})
         response = self.call('/oauth2/token', params)
         self.access_token = response['access_token']
         return response
