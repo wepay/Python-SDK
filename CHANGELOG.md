@@ -1,4 +1,4 @@
-# 0.2.3 Python SDK (2014-04-17)
+# 0.2.3 Python SDK (2014-05-14)
 
 ## Bug Fixes
 * **Version:** Updated version number to 0.2.3
