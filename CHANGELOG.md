@@ -1,3 +1,11 @@
+# 0.2.3 Python SDK (2014-04-17)
+
+## Bug Fixes
+* **Version:** Updated version number to 0.2.3
+
+## Breaking Changes
+* **callback_uri:** Support 'callback_uri' for /oauth/token API call ([0df3306](https://github.com/wepay/Python-SDK/commit/0df3306ab3ee15e411fb71e9e4ae360e8b6886e1))
+
 # 0.2.2 Python SDK (2014-04-22)
 
 ## Bug Fixes
