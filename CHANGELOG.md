@@ -1,7 +1,14 @@
-# 0.2.3 Python SDK (2014-07-03)
+# 0.3.0 Python SDK (2014-07-16)
+
+## Breaking Changes
+* **Exception:** Raise exception instead of WePayError ([e23b61c](https://github.com/wepay/Python-SDK/commit/e23b61c2a54567d16838efc6760123f639cb60f3))
+
+# 0.2.4 Python SDK (2014-07-03)
 
 ## Bug Fixes
-* **Exception:** Raise exception instead of WePayError ([cc7f664](https://github.com/wepay/Python-SDK/commit/cc7f664dcb94217e6682971ca84f0e3d6b33d6b1))
+* **WePayError:** Revert to WePayError ([7383990](https://github.com/wepay/Python-SDK/commit/73839903d3d69dac6f0ace3ee1706de356df72d3))
+* **Exception:** Raise exception ([cc7f664](https://github.com/wepay/Python-SDK/commit/cc7f664dcb94217e6682971ca84f0e3d6b33d6b1))
+
 
 # 0.2.3 Python SDK (2014-05-14)
 
