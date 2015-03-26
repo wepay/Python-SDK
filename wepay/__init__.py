@@ -1,4 +1,4 @@
-from api import WePay
+from wepay.api import WePay
 
 # Major, minor, revision
 VERSION = (0, 3, 0)
