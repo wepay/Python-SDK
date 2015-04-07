@@ -9,7 +9,9 @@ class WePay(object):
     A client for the WePay API.
     """
 
-    def __init__(self, production=True, access_token=None, api_version=None):
+    def __init__(
+            self, production=True, access_token=None, api_version=None,
+            request_timeout=30):
         """
         :param bool production: When ``False``, the ``stage.wepay.com`` API
             server will be used instead of the default production.
@@ -20,6 +22,7 @@ class WePay(object):
         self.requests = requests
         self.access_token = access_token
         self.api_version = api_version
+        self.request_timeout = request_timeout
 
         if production:
             self.api_endpoint = "https://wepayapi.com/v2"
@@ -53,11 +56,12 @@ class WePay(object):
 
         if params:
             params = json.dumps(params)
-        
+
         try:
             response = self.requests.post(
-                url, data=params, headers=headers, timeout=30)
-            return response.json()          
+                url, data=params, headers=headers,
+                timeout=self.request_timeout)
+            return response.json()
         except:
             if 400 <= response.status_code <= 599:
                 raise Exception('Unknown error. Please contact support@wepay.com')
