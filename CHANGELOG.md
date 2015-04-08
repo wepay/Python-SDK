@@ -1,3 +1,10 @@
+# 0.3.1 Python SDK (2015-04-08)
+
+## Bug fixes
+* **Timeout:** Make request timeout configurable ([3554f2e](https://github.com/wepay/Python-SDK/commit/3554f2eced64fb730e367478ab73ba9036f88884))
+* **Tests:** Add tests ([8d9a4d0](https://github.com/kevinjqiu/Python-SDK/commit/8d9a4d02ccc35a825fc40304eaef2aeed5807ec4))
+* **Import:** Fix import during setup ([ecf99f6](https://github.com/wepay/Python-SDK/commit/ecf99f6f113c991156cefcb8bfc40cd2d08302bd))
+
 # 0.3.0 Python SDK (2014-07-16)
 
 ## Breaking Changes
