@@ -126,7 +126,7 @@ class WePay(object):
         # The call to /oauth2/token should return an access_token
         # if the access_token was not returned, then an error occured
         # we need to raise this error, 
-        # otherwise this will die when trying to use the 'acess_token' field
+        # otherwise this will die when trying to use the 'access_token' field
         if 'access_token' not in response:
             raise WePayError(response['error'], response['error_code'], response['error_description'])
 
