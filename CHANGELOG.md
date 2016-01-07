@@ -1,3 +1,8 @@
+# 0.3.2 Python SDK (2015-11-13)
+
+## Bug fixes
+* **Error handling:** Raise an error if request fails ([4e4ec5c](https://github.com/wepay/Python-SDK/commit/4e4ec5c2eba5cf0d61ce9a97474fdf6089bf8e16), [e7bbf2d](https://github.com/wepay/Python-SDK/commit/e7bbf2deb2514ec1133b0b48a70a809a949f6847), [ec775ab](https://github.com/wepay/Python-SDK/commit/ec775abfe4dc4ce282e238aa1e01038c217d300b))
+
 # 0.3.1 Python SDK (2015-04-08)
 
 ## Bug fixes
