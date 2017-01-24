@@ -31,7 +31,7 @@ class WePay(object):
             self.api_endpoint = "https://stage.wepayapi.com/v2"
             self.browser_endpoint = "https://stage.wepay.com/v2"
 
-    def call(self, uri, params=None, token=None):
+    def call(self, uri, params=None, token=None, risk_token=None, client_ip=None):
         """
         Calls wepay.com/v2/``uri`` with ``params`` and returns the JSON
         response as a python dict. The optional token parameter will override
@@ -41,6 +41,8 @@ class WePay(object):
         :param dict params: The parameters to pass to the URI.
         :param str token: Optional override for this ``WePay`` object's access
             token.
+        :param str risk_token: Optional WePay-Risk-Token for this API call.
+        :param str client_ip: Optional Client-IP for this API call.
         """
 
         headers = {'Content-Type': 'application/json',
@@ -53,6 +55,12 @@ class WePay(object):
 
         if self.api_version:
             headers['Api-Version'] = self.api_version
+
+        if risk_token:
+            headers['WePay-Risk-Token'] = risk_token
+
+        if client_ip:
+            headers['Client-IP'] = client_ip
 
         if params:
             params = json.dumps(params)

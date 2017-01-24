@@ -1,3 +1,11 @@
+# 0.3.3 Python SDK (2017-01-19)
+
+## Bug Fixes
+* **Version:** Updated version number to 0.3.3
+
+## Breaking Changes
+* **risk_token, client_ip:** Added optional risk_token and client_ip params to the API call function.
+
 # 0.3.2 Python SDK (2015-11-13)
 
 ## Bug fixes

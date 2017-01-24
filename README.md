@@ -89,6 +89,20 @@ Redirect them to their account page to see it:
 
     web.redirect(create_response['account_uri'])
 
+WePay Risk Headers
+-----
+
+You can supply WePay with risk-related information on every API call by passing the WePay-Risk-Token and Client-IP values to the `call` function:
+
+```
+wepay.call('/account/modify', {
+    'account_id': create_response['account_id'],
+    'image_uri': 'http://www.placekitten.com/500/500'
+}, risk_token='123e4567-e89b-12d3-a456-426655440000', client_ip='100.166.99.123')
+```
+
+Detailed information regarding the Risk Headers can be found at the [WePay API Documentation](https://developer.wepay.com/reference/risk_headers).
+
 Try it!
 -----
 
