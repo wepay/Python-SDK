@@ -1,10 +1,10 @@
 # 0.3.3 Python SDK (2017-01-19)
 
 ## Bug Fixes
-* **Version:** Updated version number to 0.3.3
+* **Version:** Updated version number to 0.3.3 ([682b761](https://github.com/wepay/Python-SDK/commit/682b761e8109c4329bc21bcab16d4091cd027c35))
 
 ## Breaking Changes
-* **risk_token, client_ip:** Added optional risk_token and client_ip params to the API call function.
+* **risk_token, client_ip:** Added optional risk_token and client_ip params to the API call function. ([682b761](https://github.com/wepay/Python-SDK/commit/682b761e8109c4329bc21bcab16d4091cd027c35))
 
 # 0.3.2 Python SDK (2015-11-13)
 
