@@ -1,3 +1,8 @@
+# 0.3.4 Python SDK (2019-08-23)
+
+## Bug Fixes
+* **Error handling:** Fixed undefined local variable reference ([7e5e809](https://github.com/wepay/Python-SDK/commit/7e5e80950a17889fbba4328e90f60f212bdc4674)) 
+
 # 0.3.3 Python SDK (2017-01-19)
 
 ## Bug Fixes
