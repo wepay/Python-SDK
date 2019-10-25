@@ -1,3 +1,8 @@
+# 0.3.5 Python SDK (2019-10-04)
+
+## Bug Fixes
+* **requests:** Auto update minor version of requests library ([9255d9b](https://github.com/wepay/Python-SDK/commit/9255d9b67ce9a50a3b6865a74517e274b3b3cbe3))
+
 # 0.3.4 Python SDK (2019-08-23)
 
 ## Bug Fixes
